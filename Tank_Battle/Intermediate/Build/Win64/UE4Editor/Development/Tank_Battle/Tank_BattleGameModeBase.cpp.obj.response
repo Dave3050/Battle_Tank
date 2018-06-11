@@ -24,9 +24,9 @@
 /wd4838
 /w44668
 /I "C:\Program Files\Epic Games\UE_4.19\Engine\Source"
-/I "C:\Users\Dave\Documents\repos\UnrealCourse\Section_04 Battle Tank\Tank_Battle\Source"
-/I "C:\Users\Dave\Documents\repos\UnrealCourse\Section_04 Battle Tank\Tank_Battle\Intermediate\Build\Win64\UE4Editor\Inc\Tank_Battle"
-/I "C:\Users\Dave\Documents\repos\UnrealCourse\Section_04 Battle Tank\Tank_Battle\Source\Tank_Battle"
+/I "C:\Users\Dave\Documents\repos\UnrealCourse\Section_4 Battle TankA\Tank_Battle\Source"
+/I "C:\Users\Dave\Documents\repos\UnrealCourse\Section_4 Battle TankA\Tank_Battle\Intermediate\Build\Win64\UE4Editor\Inc\Tank_Battle"
+/I "C:\Users\Dave\Documents\repos\UnrealCourse\Section_4 Battle TankA\Tank_Battle\Source\Tank_Battle"
 /I "C:\Program Files\Epic Games\UE_4.19\Engine\Source\Runtime\Core\Public"
 /I "C:\Program Files\Epic Games\UE_4.19\Engine\Source\Runtime\Core\Public\Internationalization"
 /I "C:\Program Files\Epic Games\UE_4.19\Engine\Source\Runtime\Core\Public\Async"
@@ -364,9 +364,9 @@
 /FI"C:\Program Files\Epic Games\UE_4.19\Engine\Intermediate\Build\Win64\UE4Editor\Development\Engine\SharedPCH.Engine.h"
 /Yu"C:\Program Files\Epic Games\UE_4.19\Engine\Intermediate\Build\Win64\UE4Editor\Development\Engine\SharedPCH.Engine.h"
 /Fp"C:\Program Files\Epic Games\UE_4.19\Engine\Intermediate\Build\Win64\UE4Editor\Development\Engine\SharedPCH.Engine.h.pch"
-"C:\Users\Dave\Documents\repos\UnrealCourse\Section_04 Battle Tank\Tank_Battle\Source\Tank_Battle\Tank_BattleGameModeBase.cpp"
-/FI"C:\Users\Dave\Documents\repos\UnrealCourse\Section_04 Battle Tank\Tank_Battle\Intermediate\Build\Win64\UE4Editor\Development\Tank_Battle\Definitions.Tank_Battle.h"
-/Fo"C:\Users\Dave\Documents\repos\UnrealCourse\Section_04 Battle Tank\Tank_Battle\Intermediate\Build\Win64\UE4Editor\Development\Tank_Battle\Tank_BattleGameModeBase.cpp.obj"
+"C:\Users\Dave\Documents\repos\UnrealCourse\Section_4 Battle TankA\Tank_Battle\Source\Tank_Battle\Tank_BattleGameModeBase.cpp"
+/FI"C:\Users\Dave\Documents\repos\UnrealCourse\Section_4 Battle TankA\Tank_Battle\Intermediate\Build\Win64\UE4Editor\Development\Tank_Battle\Definitions.Tank_Battle.h"
+/Fo"C:\Users\Dave\Documents\repos\UnrealCourse\Section_4 Battle TankA\Tank_Battle\Intermediate\Build\Win64\UE4Editor\Development\Tank_Battle\Tank_BattleGameModeBase.cpp.obj"
 /TP
 /GR-
 /W4
