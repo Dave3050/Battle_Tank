@@ -5,7 +5,7 @@
 *.VC.db
 
 # Conent Starter Packs
-StarterContent/*
+Content/StarterContent/*
 
 # Compiled Object files
 *.slo
