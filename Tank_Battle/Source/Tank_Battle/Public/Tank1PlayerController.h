@@ -15,10 +15,23 @@ UCLASS()
 class TANK_BATTLE_API ATank1PlayerController : public APlayerController
 {
 	GENERATED_BODY()
-	
+
 public:
 
-	ATank* GetControlledTank() const;
-	
-	
+	ATank * GetControlledTank() const;
+
+	virtual void BeginPlay() override;
+
+	virtual void Tick(float DeltaTime) override;
+
+private:
+
+	//Starts the tank moving the barrel so that the shot would hit
+	//where it intersects with the world
+	void AimTowardsCrosshair();
+
+	//Return an OUT Parameter, true if hit landscape
+	bool GetSightRayHitLocation(FVector& OutHitLocation) const;
+
+
 };
