@@ -4,8 +4,15 @@
 # Visual Studio 2015 database file
 *.VC.db
 
+#Intermediate
+Tank_Battle/Intermediate/*
+
 # Conent Starter Packs
 Content/StarterContent/*
+Content/InfinityBladeGrassLands/*
+Content/KiteDemo/*
+Content/ParagonProps/*
+Content/SampleMap/*
 
 # Compiled Object files
 *.slo
