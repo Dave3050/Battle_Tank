@@ -3,8 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GameFramework/Actor.h"
+#include "TankAimingComponent.h"
 #include "GameFramework/Pawn.h"
 #include "Tank.generated.h"
+
+class UTankBarrel;
 
 UCLASS()
 class TANK_BATTLE_API ATank : public APawn
@@ -20,9 +24,14 @@ public:
 
 	void AimAt(FVector HitLocation);
 
+	UFUNCTION(BlueprintCallable, Category = Setup)
+	void SetBarrelReference(UTankBarrel * barrelToSet);
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	UTankAimingComponent* TankAimingComponent = nullptr;
 
 private:	
 	
@@ -30,6 +39,7 @@ private:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	
+	UPROPERTY(EditAnywhere, Category = Firing)
+		float LaunchSpeed = 100000; // TODO Find Tank projectile velocity 
 	
 };
