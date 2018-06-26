@@ -8,7 +8,11 @@
 #include "GameFramework/Pawn.h"
 #include "Tank.generated.h"
 
+// Forward Declaration
 class UTankBarrel;
+class ATank1PlayerController;
+class ATankAIController;
+class UTankAimingComponent;
 
 UCLASS()
 class TANK_BATTLE_API ATank : public APawn
@@ -18,9 +22,6 @@ class TANK_BATTLE_API ATank : public APawn
 public:
 	// Sets default values for this pawn's properties
 	ATank();
-
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
 
 	void AimAt(FVector HitLocation);
 

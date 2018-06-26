@@ -3,6 +3,7 @@
 #pragma once
 
 #include "Tank1PlayerController.h"
+#include "Public/Tank.h"
 #include "Tank_Battle.h"
 
 

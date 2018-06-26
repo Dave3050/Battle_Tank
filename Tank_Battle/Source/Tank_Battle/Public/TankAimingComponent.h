@@ -6,12 +6,19 @@
 #include "Kismet/GameplayStatics.h"
 #include "Components/StaticMeshComponent.h"
 #include "Math/Rotator.h"
+#include "Engine/World.h"
 #include "Components/ActorComponent.h"
 #include "GameFramework/Actor.h"
 #include "TankAimingComponent.generated.h"
 
 // Forward Declaration
 class UTankBarrel; 
+
+class ATank1PlayerController;
+
+class ATank;
+
+class ATankAIController;
 
 // Holds Parameters for barrel
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )

@@ -4,18 +4,28 @@
 
 #include "CoreMinimal.h"
 #include "Components/StaticMeshComponent.h"
+#include "Engine/World.h"
+#include "Math/UnrealMathUtility.h"
 #include "TankBarrel.generated.h"
 
-/**
- * 
- */
+
+ // Forward Declaration
+class ATank1PlayerController;
+
+class ATank;
+
+class ATankAIController;
+
+class UTankAimingComponent;
+
 UCLASS(meta = (BlueprintSpawnableComponent))
 class TANK_BATTLE_API UTankBarrel : public UStaticMeshComponent
 {
 	GENERATED_BODY()
 
 public:
-	void Elevate(float DegreesPerSecond);
+	// Min speed is -1 max speed is 1
+	void Elevate(float RelativeSpeed);
 	
 private:
 	UPROPERTY(EditAnywhere, Category = Setup)
