@@ -20,6 +20,8 @@ class ATank;
 
 class ATankAIController;
 
+class UTankTurret;
+
 // Holds Parameters for barrel
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class TANK_BATTLE_API UTankAimingComponent : public UActorComponent
@@ -32,7 +34,7 @@ public:
 
 	void SetBarrelReference(UTankBarrel * BarrelToSet);
 
-	//TODO Add SetTurretReference
+	void SetTurretReference(UTankTurret* TurretToSet);
 
 	void AimAt(FVector HitLocation, float LaunchSpeed);
 
@@ -44,6 +46,10 @@ private:
 
 	UTankBarrel * Barrel = nullptr;
 
-	void MoveBarrel(FVector AimDirection);
+	void MoveBarrel(FVector YAimDirection);
+
+	UTankTurret* Turret = nullptr;
+
+	
 	
 };
