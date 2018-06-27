@@ -31,8 +31,4 @@ public:
 	
 private:
 
-	ATank * GetAITank() const;
-
-	ATank* GetPlayerTank() const;
-
 };
