@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "TankAimingComponent.h"
 #include "GameFramework/Pawn.h"
+#include "Engine/World.h"
 #include "Tank.generated.h"
 
 // Forward Declaration
@@ -14,6 +15,7 @@ class ATank1PlayerController;
 class ATankAIController;
 class UTankAimingComponent;
 class UTankTurret;
+class AProjectile;
 
 UCLASS()
 class TANK_BATTLE_API ATank : public APawn
@@ -50,6 +52,12 @@ private:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	UPROPERTY(EditAnywhere, Category = Firing)
-		float LaunchSpeed = 60960.0; 
+	float LaunchSpeed = 60960.0; 
+
+	UPROPERTY(EditAnywhere, Category = Setup)
+	TSubclassOf<AProjectile> ProjectileBlueprint;
+
+	// Local barrel reference for spawning projectile
+	UTankBarrel* Barrel = nullptr;
 	
 };
