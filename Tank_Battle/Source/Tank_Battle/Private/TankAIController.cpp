@@ -29,5 +29,5 @@ void ATankAIController::Tick(float DeltaTime)
 		AITank->Fire(); // TODO Limit Firing Rate
 	}
 
-}
+};
 
