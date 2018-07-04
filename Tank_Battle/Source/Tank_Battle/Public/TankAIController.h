@@ -31,4 +31,7 @@ public:
 	
 private:
 
+	// Controls how close the AI tank can get
+	float AcceptanceRadious = 3000;
+
 };
