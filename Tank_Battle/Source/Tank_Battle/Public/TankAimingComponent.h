@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright AH Studios 2018
 
 #pragma once
 
@@ -10,6 +10,15 @@
 #include "Components/ActorComponent.h"
 #include "GameFramework/Actor.h"
 #include "TankAimingComponent.generated.h"
+
+// Enum For aiming state
+UENUM()
+enum class EFiringStatus : uint8
+{
+	Reloading,
+	Aiming,
+	Locked
+};
 
 // Forward Declaration
 class UTankBarrel; 
@@ -29,17 +38,20 @@ class TANK_BATTLE_API UTankAimingComponent : public UActorComponent
 	GENERATED_BODY()
 
 public:	
+
 	// Sets default values for this component's properties
 	UTankAimingComponent();
 
-	void SetBarrelReference(UTankBarrel * BarrelToSet);
-
-	void SetTurretReference(UTankTurret* TurretToSet);
+	UFUNCTION(BlueprintCallable, Category = "Setup")
+	void Initialize(UTankBarrel* BarrelToSet, UTankTurret* TurretToSet);
 
 	void AimAt(FVector HitLocation, float LaunchSpeed);
 
 protected:
 	
+	UPROPERTY(BlueprintReadOnly, Category = "State")
+	EFiringStatus FiringStatus = EFiringStatus::Aiming;
+
 
 
 private: 

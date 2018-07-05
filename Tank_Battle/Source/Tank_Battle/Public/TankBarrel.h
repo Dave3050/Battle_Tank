@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright AH Studios 2018
 
 #pragma once
 
@@ -16,7 +16,7 @@ class ATank;
 
 class ATankAIController;
 
-class UTankAimingComponent;
+//class UTankAimingComponent;
 
 UCLASS(meta = (BlueprintSpawnableComponent))
 class TANK_BATTLE_API UTankBarrel : public UStaticMeshComponent
@@ -28,13 +28,13 @@ public:
 	void Elevate(float RelativeSpeed);
 	
 private:
-	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 		float MaxDegreesPerSecond = 15; // A sensible default
 
-	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 		float MaxPitchDegrees = 30;
 
-	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 		float MinPitchDegrees = -5;
 
 

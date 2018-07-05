@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright AH Studios 2018
 
 #pragma once
 
@@ -24,16 +24,9 @@ class TANK_BATTLE_API ATank : public APawn
 	GENERATED_BODY()
 
 public:
+
 	// Sets default values for this pawn's properties
 	ATank();
-
-	
-
-	UFUNCTION(BlueprintCallable, Category = Setup)
-	void SetBarrelReference(UTankBarrel * barrelToSet);
-
-	UFUNCTION(BlueprintCallable, Category = Setup)
-	void SetTurretReference(UTankTurret * TurretToSet);
 
 	void AimAt(FVector HitLocation);
 
@@ -41,32 +34,30 @@ public:
 	void Fire();
 
 protected:
+
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UPROPERTY(BlueprintReadOnly)
 	UTankAimingComponent* TankAimingComponent = nullptr;
 
 	UPROPERTY(BlueprintReadOnly)
 	UTankMovementComponent* TankMovementComponent = nullptr;
 
 private:	
-	
 
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
-	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	TSubclassOf<AProjectile> ProjectileBlueprint;
 
-	UPROPERTY(EditDefaultsOnly, Category = Firing)
+	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float LaunchSpeed = 60960.0; 
 
-	UPROPERTY(EditDefaultsOnly, Category = Firing)
+	UPROPERTY(EditDefaultsOnly, Category = "Firing")
 	float ReloadTimeInSeconds = 3;
 
-	// Local barrel reference for spawning projectile
-	UTankBarrel* Barrel = nullptr;
-
 	float LastFireTime = 0;
+
+	// Local Barrel Reference for spawning projectile
+	UTankBarrel* Barrel = nullptr; //TODO Remove
 	
 };
