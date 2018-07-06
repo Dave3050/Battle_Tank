@@ -13,8 +13,6 @@ class UTankBarrel;
 
 class ATank1PlayerController;
 
-class ATank;
-
 class UTankAimingComponent;
 
 

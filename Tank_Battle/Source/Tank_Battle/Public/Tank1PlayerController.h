@@ -16,8 +16,6 @@
  // Forward Declaration
 class UTankBarrel;
 
-class ATank;
-
 class ATankAIController;
 
 class UTankAimingComponent;
@@ -29,8 +27,7 @@ class TANK_BATTLE_API ATank1PlayerController : public APlayerController
 
 protected:
 
-	UFUNCTION(BlueprintCallable, Category = "Setup")
-	ATank * GetControlledTank() const;
+
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
 	void FoundAimingComponent(UTankAimingComponent* AimingCompRef);

@@ -25,7 +25,7 @@ class UTankBarrel;
 
 class ATank1PlayerController;
 
-class ATank;
+class AProjectile;
 
 class ATankAIController;
 
@@ -45,7 +45,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Setup")
 	void Initialize(UTankBarrel* BarrelToSet, UTankTurret* TurretToSet);
 
-	void AimAt(FVector HitLocation, float LaunchSpeed);
+	void AimAt(FVector HitLocation);
+
+	UFUNCTION(BlueprintCallable, Category = "Firing")
+	void Fire();
 
 protected:
 	
@@ -56,12 +59,21 @@ protected:
 
 private: 
 
-	UTankBarrel * Barrel = nullptr;
-
 	void MoveBarrel(FVector YAimDirection);
 
+	UTankBarrel * Barrel = nullptr;
 	UTankTurret* Turret = nullptr;
 
-	
+	UPROPERTY(EditDefaultsOnly, Category = "Firing")
+		float LaunchSpeed = 60960.0;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+		TSubclassOf<AProjectile> ProjectileBlueprint;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Firing")
+		float ReloadTimeInSeconds = 3;
+
+	float LastFireTime = 0;
 	
 };
+

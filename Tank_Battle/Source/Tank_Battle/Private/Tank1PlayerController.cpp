@@ -3,7 +3,7 @@
 #pragma once
 
 #include "Tank1PlayerController.h"
-#include "Public/Tank.h"
+#include "TankAimingComponent.h"
 #include "Tank_Battle.h"
 
 
@@ -11,13 +11,10 @@
 void ATank1PlayerController::BeginPlay()
 {
 	Super::BeginPlay();
-	auto AimingComponent = GetControlledTank()->FindComponentByClass<UTankAimingComponent>();
+	auto AimingComponent = GetPawn()->FindComponentByClass<UTankAimingComponent>();
 	if (!ensure(AimingComponent)) { return; }
 	
-		FoundAimingComponent(AimingComponent);
-	
-	
-	
+	FoundAimingComponent(AimingComponent);
 }
 
 void ATank1PlayerController::Tick(float DeltaTime)
@@ -27,19 +24,17 @@ void ATank1PlayerController::Tick(float DeltaTime)
 	
 }
 
-ATank* ATank1PlayerController::GetControlledTank() const
-{
-	return Cast<ATank>(GetPawn());
-}
+
 
 void ATank1PlayerController::AimTowardsCrosshair()
 {
-	if (!ensure(GetControlledTank())) { return; }
+	auto AimingComponent = GetPawn()->FindComponentByClass<UTankAimingComponent>();
+	if (!ensure(AimingComponent)) { return; }
 	
 	FVector HitLocation; //Out parameter
 	if (GetSightRayHitLocation(HitLocation)) // Has Side-effect, is going to line trace
 	{
-		GetControlledTank()->AimAt(HitLocation);
+		AimingComponent->AimAt(HitLocation);
 	}
 	
 }
