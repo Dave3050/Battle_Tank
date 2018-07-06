@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright AH Studios 2018
 
 #pragma once
 
@@ -9,6 +9,9 @@
 #include "Engine/World.h"
 #include "Tank1PlayerController.generated.h"
 
+/*
+  Responsible for helping the player aim
+*/
 
  // Forward Declaration
 class UTankBarrel;
@@ -28,6 +31,9 @@ protected:
 
 	UFUNCTION(BlueprintCallable, Category = "Setup")
 	ATank * GetControlledTank() const;
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
+	void FoundAimingComponent(UTankAimingComponent* AimingCompRef);
 
 	virtual void BeginPlay() override;
 

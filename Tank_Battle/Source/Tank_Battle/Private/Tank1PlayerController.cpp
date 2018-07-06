@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright AH Studios 2018
 
 #pragma once
 
@@ -11,7 +11,13 @@
 void ATank1PlayerController::BeginPlay()
 {
 	Super::BeginPlay();
-
+	auto AimingComponent = GetControlledTank()->FindComponentByClass<UTankAimingComponent>();
+	if (!ensure(AimingComponent)) { return; }
+	
+		FoundAimingComponent(AimingComponent);
+	
+	
+	
 }
 
 void ATank1PlayerController::Tick(float DeltaTime)
@@ -28,10 +34,7 @@ ATank* ATank1PlayerController::GetControlledTank() const
 
 void ATank1PlayerController::AimTowardsCrosshair()
 {
-	if (!GetControlledTank())
-	{
-		return;
-	}
+	if (!ensure(GetControlledTank())) { return; }
 	
 	FVector HitLocation; //Out parameter
 	if (GetSightRayHitLocation(HitLocation)) // Has Side-effect, is going to line trace
@@ -70,6 +73,7 @@ bool ATank1PlayerController::GetLookVectorHitLocation(FVector LookDirection, FVe
 	FHitResult HitResult;
 	auto StartLocation = PlayerCameraManager->GetCameraLocation();
 	auto EndLocation = StartLocation + (LookDirection * LineTraceRange);
+
 	if (GetWorld()->LineTraceSingleByChannel
 				(
 					HitResult,

@@ -3,7 +3,6 @@
 #include "Tank.h"
 #include "TankBarrel.h"
 #include "TankAimingComponent.h"
-#include "TankMovementComponent.h"
 #include "Projectile.h"
 #include "Tank_Battle.h"
 
@@ -14,22 +13,22 @@ ATank::ATank()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 	
-	auto TankName = GetName();
-	UE_LOG(LogTemp, Warning, TEXT("Junk: Tank %s constuct C++"), *TankName)
+
 }
 
  //Called when the game starts or when spawned
 void ATank::BeginPlay()
 {
 	Super::BeginPlay();
-	auto TankName = GetName();
-	UE_LOG(LogTemp, Warning, TEXT("Junk: Tank %s Begin Play C++"), *TankName)
+
+
+	TankAimingComponent = FindComponentByClass<UTankAimingComponent>();
 	
 }
 
 void ATank::AimAt(FVector HitLocation)
 {
-	if (!TankAimingComponent) { return; }
+	if (!ensure (TankAimingComponent)) { return; }
 
 	TankAimingComponent->AimAt(HitLocation, LaunchSpeed);
 	
@@ -37,9 +36,11 @@ void ATank::AimAt(FVector HitLocation)
 
 void ATank::Fire()
 {
+
+	if (!ensure(Barrel)) { return; }
 	bool isReloaded = (GetWorld()->GetTimeSeconds() - LastFireTime) > ReloadTimeInSeconds;
 
-	if (Barrel && isReloaded)
+	if (isReloaded)
 	{
 
 		// spawn a projectile at the socket location on the barrel
