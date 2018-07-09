@@ -23,13 +23,18 @@ class TANK_BATTLE_API ATankAIController : public AAIController
 	
 public:
 
+protected:
+
 	virtual void BeginPlay() override;
 
 	virtual void Tick(float DeltaTime) override;
+
+	// Controls how close the AI tank can get
+	UPROPERTY(EditDefaultsOnly, Category = "Setup") // Consider EditDefaultsOnly Later
+	float AcceptanceRadious = 8000;
 	
 private:
 
-	// Controls how close the AI tank can get
-	float AcceptanceRadious = 3000;
+	
 
 };

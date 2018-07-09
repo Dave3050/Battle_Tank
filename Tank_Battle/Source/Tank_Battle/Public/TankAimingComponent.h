@@ -17,7 +17,8 @@ enum class EFiringStatus : uint8
 {
 	Reloading,
 	Aiming,
-	Locked
+	Locked,
+	OutOfAmmo
 };
 
 // Forward Declaration
@@ -50,6 +51,11 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Firing")
 	void Fire();
 
+	EFiringStatus GetFiringState() const;
+
+	UFUNCTION(BlueprintCallable, Category = "Firing")
+	int GetRoundsLeft() const;
+
 protected:
 	
 	UPROPERTY(BlueprintReadOnly, Category = "State")
@@ -58,6 +64,8 @@ protected:
 	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
 
 	virtual void BeginPlay() override;
+
+	
 
 private: 
 
@@ -81,6 +89,6 @@ private:
 
 	FVector AimDirection;
 	
-	
+	int RoundsLeft = 3;
 };
 
