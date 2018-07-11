@@ -48,6 +48,15 @@ void AProjectile::LaunchProjectile(float Speed)
 {
 	ProjectileMovement->SetVelocityInLocalSpace(FVector::ForwardVector * Speed);
 	ProjectileMovement->Activate();
+
+	FTimerHandle Timer;
+	GetWorld()->GetTimerManager().SetTimer(Timer, this, &AProjectile::OnTimerExpire, DestroyDelay, false);
+
+}
+
+void AProjectile::OnTimerExpire()
+{
+	Destroy();
 }
 
 
@@ -69,14 +78,7 @@ void AProjectile::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, U
 		UDamageType::StaticClass(),
 		TArray<AActor*>() // Damage all actors
 	);
-
-	FTimerHandle Timer;
-	GetWorld()->GetTimerManager().SetTimer(Timer, this, &AProjectile::OnTimerExpire, DestroyDelay, false);
-
 }
 
-void AProjectile::OnTimerExpire()
-{
-	Destroy();
-}
+
 

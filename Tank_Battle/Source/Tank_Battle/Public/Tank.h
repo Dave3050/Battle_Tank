@@ -42,6 +42,6 @@ private:
 	int32 StartHealth = 100;
 
 	UPROPERTY(VisibleAnywhere, Category = "Health")
-	int32 CurrentHealth = StartHealth;
+	int32 CurrentHealth; // Initialised in Begin Play
 	
 };

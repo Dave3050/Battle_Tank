@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Engine/World.h"
 #include "GameFramework/Actor.h"
+#include "GameFramework/Pawn.h"
 #include "AIController.h"
 #include "TankAIController.generated.h"
 
@@ -30,7 +31,7 @@ protected:
 	virtual void Tick(float DeltaTime) override;
 
 	// Controls how close the AI tank can get
-	UPROPERTY(EditDefaultsOnly, Category = "Setup") // Consider EditDefaultsOnly Later
+	UPROPERTY(EditDefaultsOnly, Category = "Setup") 
 	float AcceptanceRadious = 8000;
 	
 private:
@@ -39,6 +40,8 @@ private:
 
 	UFUNCTION()
 	void OnPossessedTankDeath();
+
+	
 
 
 };

@@ -6,6 +6,8 @@
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
 #include "GameFramework/Actor.h"
+#include "GameFramework/Pawn.h"
+#include "Tank.h"
 #include "Engine/World.h"
 #include "Tank1PlayerController.generated.h"
 
@@ -30,7 +32,7 @@ protected:
 
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
-	void FoundAimingComponent(UTankAimingComponent* AimingCompRef);
+		void FoundAimingComponent(UTankAimingComponent* AimingCompRef);
 
 	virtual void BeginPlay() override;
 
@@ -57,4 +59,14 @@ private:
 	bool GetLookDirection(FVector2D ScreenLocation, FVector& LookDirection) const;
 
 	bool GetLookVectorHitLocation(FVector LookDirection, FVector& HitLocation) const;
+
+	virtual void SetPawn(APawn* InPawn) override;
+
+	UFUNCTION()
+	void OnPlayerTankDeath();
+
+
+
 };
+
+

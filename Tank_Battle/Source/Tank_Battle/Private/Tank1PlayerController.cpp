@@ -17,6 +17,24 @@ void ATank1PlayerController::BeginPlay()
 	FoundAimingComponent(AimingComponent);
 }
 
+void ATank1PlayerController::SetPawn(APawn * InPawn)
+{
+	Super::SetPawn(InPawn);
+	if (InPawn)
+	{
+		auto PlayerTank = Cast<ATank>(InPawn);
+		if (!ensure(PlayerTank)) { return; }
+
+		// Subscribe our local method to the tank's death event
+		PlayerTank->OnDeath.AddUniqueDynamic(this, &ATank1PlayerController::OnPlayerTankDeath);
+	}
+}
+
+void ATank1PlayerController::OnPlayerTankDeath()
+{
+	StartSpectatingOnly();
+}
+
 void ATank1PlayerController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
@@ -75,7 +93,7 @@ bool ATank1PlayerController::GetLookVectorHitLocation(FVector LookDirection, FVe
 					HitResult,
 					StartLocation,
 					EndLocation,
-					ECollisionChannel::ECC_Visibility
+					ECollisionChannel::ECC_Camera
 				)
 		)
 		{
