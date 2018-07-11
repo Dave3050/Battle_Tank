@@ -126,9 +126,6 @@ void UTankAimingComponent::MoveBarrel(FVector YAimDirection)
 void UTankAimingComponent::Fire()
 {
 
-	
-	
-
 	if (FiringStatus == EFiringStatus::Locked || FiringStatus == EFiringStatus::Aiming)
 	{
 
