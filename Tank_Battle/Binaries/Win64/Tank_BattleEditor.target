@@ -16,15 +16,15 @@
 	},
 	"BuildProducts": [
 		{
-			"Path": "$(ProjectDir)/Binaries/Win64/UE4Editor-Tank_Battle-711.dll",
+			"Path": "$(ProjectDir)/Binaries/Win64/UE4Editor-Tank_Battle-5823.dll",
 			"Type": "DynamicLibrary"
 		},
 		{
-			"Path": "$(ProjectDir)/Binaries/Win64/UE4Editor-Tank_Battle-711.pdb",
+			"Path": "$(ProjectDir)/Binaries/Win64/UE4Editor-Tank_Battle-5823.pdb",
 			"Type": "SymbolFile"
 		},
 		{
-			"Path": "$(ProjectDir)/Intermediate/Build/Win64/UE4Editor/Development/UE4Editor-Tank_Battle-711.lib",
+			"Path": "$(ProjectDir)/Intermediate/Build/Win64/UE4Editor/Development/UE4Editor-Tank_Battle-5823.lib",
 			"Type": "ImportLibrary"
 		},
 		{

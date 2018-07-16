@@ -17,6 +17,8 @@ class ATankAIController;
 
 class UTankAimingComponent;
 
+class ASprungWheel;
+
 UCLASS(meta = (BlueprintSpawnableComponent))
 class TANK_BATTLE_API UTankTrack : public UStaticMeshComponent
 {
@@ -36,19 +38,14 @@ protected:
 
 	UTankTrack();
 
-	virtual void BeginPlay() override;
-	
-
-	void ApplySidewaysForce();
 
 private:
 
-	UFUNCTION()
-	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit);
+	void TrackDrive(float CurrentThrottle);
 
-	void TrackDrive();
+	
 
-	float CurrentThrottle = 0;
+	TArray <class ASprungWheel*> GetWheels() const;
 
 };
 
